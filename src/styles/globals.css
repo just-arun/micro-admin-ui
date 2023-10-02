@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --header-height: 60px;
+  --drawer-width: 180px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,3 +27,26 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: var(--drawer-width) 1fr;
+  grid-template-rows: var(--header-height) 1fr;
+  grid-template-areas: "header header"
+                        "drawer main";
+}
+
+aside.dashboard-layout__drawer {
+  grid-area: drawer;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+}
+
+header.dashboard-layout__header {
+  grid-area: header;
+}
+
+main.dashboard-layout__main {
+  grid-area: main;
+}
+
