@@ -1,6 +1,6 @@
 import React from "react"
 
-export interface ContainerProviderProps<State = void> {
+export interface ContainerProviderProps<State = any> {
 	initialState?: State
 	children: React.ReactNode
 }
@@ -10,7 +10,7 @@ export interface Container<Value, State = void> {
 	useContainer: () => Value
 }
 
-export function createContainer<Value, State = void>(
+export function createContainer<Value, State = any>(
 	useHook: (initialState?: State) => Value,
 ): Container<Value, State> {
 	let Context = React.createContext<Value | null>(null)

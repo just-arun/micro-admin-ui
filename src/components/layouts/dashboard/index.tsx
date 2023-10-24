@@ -11,7 +11,7 @@ export const Dashboard: FC<DashboardProps> = ({ children }) => {
     <div className="dashboard-layout">
       <Header />
       <Drawer />
-      <main className="dashboard-layout__main p-8">
+      <main className="dashboard-layout__main p-8 pb-[600px]">
         {children}
       </main>
     </div>

@@ -1,16 +1,8 @@
+import { Input } from "@/components/ui/input"
 import { AuthStore } from "@/stores/auth"
 
 
-const Input = ({ id, label, type, value, onChange, placeholder }: { type: any, value: any, onChange: (val: any) => void, placeholder: string, id: string, label: string }) => {
-  return <span>
-    <label htmlFor={id}>
-    <span className="block pb-1">{label}</span>
-    <input id={id} className="p-2 px-5 bg-gray-600 w-full mb-5 rounded-sm focus:outline focus:outline-orange-600 border-none outline-none"
-      placeholder={placeholder} type={type} value={value}
-      onChange={(e) => onChange(e.target.value)} />
-    </label>
-  </span>
-}
+
 
 export const LoginWrapper = () => {
   const authStore = AuthStore.useContainer()

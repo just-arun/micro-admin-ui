@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from "axios"
 axios.defaults.withCredentials = true;
 
 export class HttpClient {
-  http!: AxiosInstance
+  protected http!: AxiosInstance
   constructor() {
     this.http = axios.create({
       baseURL: Config.BASE_URL,

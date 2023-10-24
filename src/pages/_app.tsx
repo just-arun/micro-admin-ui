@@ -1,4 +1,5 @@
 import { Dashboard } from '@/components/layouts/dashboard';
+import { GlobalStore } from '@/stores/global';
 import '@/styles/globals.css'
 import { Layout } from '@/types/layout';
 import type { AppProps } from 'next/app'
@@ -13,5 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
         return <Component {...pageProps} />
     }
   }
-  return render()
+  return <GlobalStore.Provider>
+    {render()}
+  </GlobalStore.Provider>
 }

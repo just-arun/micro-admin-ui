@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      --size: 2rem;
+      height: var(--size);
+      width: var(--size);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.active {
+  background: #252525;
+}
