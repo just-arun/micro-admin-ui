@@ -11,12 +11,18 @@ class User extends HttpClient {
     })
   }
 
-  public async create(payload: any) {
-    return this.http.post(`/general/user`, payload)
+  public async getOne(id: any) {
+    return this.http.get(`/general/users/${id}`)
   }
 
-  public async updateOneName(id: any, payload: any) {
-    return this.http.put(`/general/access/${id}/name`, payload)
+  public async updateUserRole(id: any, roles: any) {
+    return this.http.put(`/general/users/${id}`, {
+      roles: roles,
+    })
+  }
+
+  public async test() {
+    return this.http.get(`/authCheck21`)
   }
 }
 

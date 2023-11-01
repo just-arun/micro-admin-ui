@@ -15,7 +15,7 @@ export const Toggle: FC<ToggleProps> = (_props) => {
         top: "50%",
         transform: "translateY(-50%)"
       }}></span>
-      <input required={_props.required} disabled={_props.disabled} className="hidden" id={_props.id} type="checkbox" checked={_props.value} onChange={(e) => _props.onChange(e.target.checked)} />
+      <input name={_props.id} value={_props.id} required={_props.required} disabled={_props.disabled} className="hidden" id={_props.id} type="checkbox" checked={_props.value} onChange={(e) => _props.onChange(e.target.checked)} />
     </label>
   )
 }

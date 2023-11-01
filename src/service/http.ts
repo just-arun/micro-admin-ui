@@ -19,6 +19,10 @@ export class HttpClient {
   private response() {
     this.http.interceptors.response.use((res) => {
       return res;
+    }, (err) => {
+      // if ([401].includes(err.response.status)) {
+      //   window.location.pathname = "/auth/login"
+      // }
     })
   }
 }

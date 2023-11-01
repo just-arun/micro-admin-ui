@@ -25,6 +25,7 @@ type TableProps = {
   sortWithSelected?: boolean
   search?: string
   clearSelected?: () => void
+  hideHeader?: boolean
 }
 
 export const Table: FC<TableProps> = (_props) => {
@@ -91,11 +92,30 @@ export const Table: FC<TableProps> = (_props) => {
     return _props.data
   }, [_props.data, _props.selected, _props.search])
 
+  useEffect(() => {
+    if (list.current) {
+      list.current.forEach((e, i) => {
+        if (_props.selected) {
+          if (_props.selected.map(e => JSON.stringify(e)).includes(`${e?.getAttribute("data-value")}`)) {
+            let val = list.current[i]
+            if (!!val) {
+              val.checked = true
+            }
+          } else {
+            let val = list.current[i]
+            if (!!val) {
+              val.checked = false
+            }
+          }
+        }
+      })
+    }
+  }, [_props.data, _props.selected])
 
   const render = () => (
     <div>
       <table className="w-full overflow-hidden">
-        <thead className={`${border} bg-black`}>
+        {!_props.hideHeader ? <thead className={`${border} bg-black`}>
           <tr>
             {_props.withSelect ? <th className={`${border} py-1 `}>
               <input ref={selectAll} type="checkbox" name="all" id="all"
@@ -130,6 +150,7 @@ export const Table: FC<TableProps> = (_props) => {
             ))}
           </tr>
         </thead>
+        : ''}
 
 
         <tbody

@@ -1,4 +1,5 @@
 import Table from "@/components/ui/table"
+import { UserService } from "@/service/user"
 import { UsersStore } from "@/stores/users"
 import { EyeIcon } from "@heroicons/react/24/solid"
 import { format } from "date-fns"
@@ -11,6 +12,12 @@ export const UserWrapper = () => {
 
   useEffect(() => {
     userStore.initData()
+    UserService.test()
+    .then(res => {
+      console.log(res.data);
+    }).catch(err => {
+      console.error(err);
+    })
   }, [])
 
   return (
